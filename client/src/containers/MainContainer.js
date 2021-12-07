@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { CartContainer, DetailContainer, IndexContainer,  AccountContainer } from "./sub-containers";
 import LogIn from '../components/LogIn';
 import {Footer} from '../components/Footer';
-import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
+import { Route, Switch, Redirect} from 'react-router-dom'
 
 
 export class MainContainer extends Component {

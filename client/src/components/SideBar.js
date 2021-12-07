@@ -87,13 +87,12 @@ export class SideBar extends Component {
                 <NavLink to="/artworks" style={{marginBottom: "20px"}}>
                     <select value={this.state.value} onChange={this.handleCategoryChange}>
                         <option value="All">All</option>
-                        <option value="Metamorphic">Metamorphic</option>
-                        <option value="Sedimentary">Sedimentary</option>
-                        <option value="Special">Special</option>
-                        <option value="Dangerous">Dangerous</option>
-                        <option value="Boring">Boring</option>
-                        <option value="Fancy">Fancy</option>
-                        <option value="Igneous">Igneous</option>
+                        <option value="Metamorphic">Paper</option>
+                        <option value="Sedimentary">Canvas</option>
+                        <option value="Special">Digital</option>
+                        <option value="Dangerous">Photo</option>
+                        <option value="Dangerous">Collage</option>
+                        <option value="Dangerous">Other</option>
                     </select>
                 </NavLink>
                 <label>Sort By:</label>

@@ -49,7 +49,7 @@ class DetailContainer extends React.Component {
                 <img width="700px" src={artwork.img} alt={artwork.name}/>
                 <div>
                     <p style={{margin: "20px"}}>{artwork.description}</p>
-                    <h4>Type: {artwork.category}</h4>
+                    {/* <h4>Type: {artwork.category}</h4> */}
                   
                     <h4>${artwork.price}</h4>
                  
