@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom'
 
 class DeleteUser extends React.Component{
 
@@ -9,7 +10,9 @@ class DeleteUser extends React.Component{
                 "Content-Type": "application/json",
                 "Authorization": localStorage.token
             }
+            
         })
+        return <Redirect to={'/'} />
     } 
 
     render(){

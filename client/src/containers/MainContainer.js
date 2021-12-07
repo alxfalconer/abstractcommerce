@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { CartContainer, DetailContainer, IndexContainer,  AccountContainer } from "./sub-containers";
 import LogIn from '../components/LogIn';
-import { Route, Switch, Redirect } from 'react-router-dom'
+import {Footer} from '../components/Footer';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 
 
 export class MainContainer extends Component {
@@ -28,7 +29,7 @@ export class MainContainer extends Component {
                     </Route>
 
                     <Route path="/login" >
-                        {!!this.props.token ? <Redirect to="/rocks"/> : <LogIn setToken={this.props.setToken} />}
+                        {!!this.props.token ? <Redirect to="/artworks"/> : <LogIn setToken={this.props.setToken} />}
                     </Route>
 
                     <Route exact path="/account">
@@ -36,8 +37,9 @@ export class MainContainer extends Component {
                     </Route> 
 
                     <Route exact path='/'> 
-                    {!!this.props.token ? <Redirect to="/rocks"/> : <LogIn setToken={this.props.setToken} />}
+                    {!!this.props.token ? <Redirect to="/artworks"/> : <LogIn setToken={this.props.setToken} />}
                     </Route>
+                    <Footer/>
                 </Switch>
             </>
         )

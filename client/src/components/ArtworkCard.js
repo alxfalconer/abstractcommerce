@@ -8,8 +8,8 @@ const ArtworkCard = (props) => {
     const { artwork } = props;
 
     return (
-        <div style={{width: "200px", margin: "40px",  overflow: "hidden"}}> 
-            <NavLink to={"/rocks/" + artwork.id} style={{textDecorationColor: "#929ca7"}}>
+        <div className='product-div'> 
+            <NavLink to={"/artworks/" + artwork.id} style={{textDecorationColor: "#929ca7"}}>
                 <img height="200px" variant="top" src={artwork.img} alt={artwork.name} />
                 <div>
                     <h4 style={{color: "#343a40"}}>{artwork.name}</h4>

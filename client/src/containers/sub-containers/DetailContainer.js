@@ -3,6 +3,7 @@ import {Redirect} from 'react-router-dom'
 
 class DetailContainer extends React.Component {
     
+    
     state = {
         redirect: false,
         value: 0
@@ -39,13 +40,13 @@ class DetailContainer extends React.Component {
             return <Redirect to={'/cart'} />
         }
 
-        let rock = this.props.artwork;
+        let artwork = this.props.artwork;
         console.log(artwork.purchases.length)
 
         return (
             <div style={{textAlign: "Center", fontFamily: "Courier New, Monospace", fontWeight: "100", color: "#343a40"}}>
                 <h2 style={{margin: "25px"}}>{artwork.name}</h2>
-                <img width="700px" src={artwork.image_url} alt={artwork.name}/>
+                <img width="700px" src={artwork.img} alt={artwork.name}/>
                 <div>
                     <p style={{margin: "20px"}}>{artwork.description}</p>
                     <h4>Type: {artwork.category}</h4>

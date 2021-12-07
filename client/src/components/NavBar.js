@@ -5,9 +5,9 @@ export class NavBar extends Component {
 
   logButton = () => {
     if(!this.props.token){
-      return <Link to="/login" style={{color: "#343a40", textDecorationColor: "#929ca7"}}>Log In</Link>
+      return <Link to="/login" style={{color: "white", textDecorationColor: "#none"}}>Log In</Link>
     } else {
-      return <a href="/" onClick={this.handleLogOut} style={{color: "#343a40", textDecorationColor: "#929ca7"}}>Log Out</a>
+      return <a href="/" onClick={this.handleLogOut} style={{color: "white", textDecorationColor: "#929ca7"}}>Log Out</a>
     }
   }
   handleLogOut = (e) => {
@@ -18,8 +18,8 @@ export class NavBar extends Component {
   render() {
 
     return (
-      <nav style={{ 
-        backgroundColor: "white", 
+      <nav className="nav" style={{ 
+        backgroundColor: "black", 
         position: "-webkit-sticky", 
         position: "sticky",
         top: "0", 
@@ -27,6 +27,7 @@ export class NavBar extends Component {
         borderWidth: "1px", 
         borderColor: "#929ca7", 
         paddingBottom: "25px", 
+        paddingTop: "25px", 
         textAlign: "Center", 
         fontSize: "20px", 
         marginTop:"3%", 
@@ -35,10 +36,10 @@ export class NavBar extends Component {
         color: "#343a40", 
         display: "flex", 
         justifyContent: "space-around"}}>
-        <Link to="/" style={{color: "#343a40", textDecorationColor: "#929ca7"}}>Abstract {<img style={{width: "50px"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzUBT0EORU4YFpG7YJr8Vm3Pn6WqAYurrIN4Qy4KzBTEMR-_c3&s" alt="logo"/>} Commerce</Link>
-        <Link to="/artworks" style={{color: "#343a40", textDecorationColor: "#929ca7"}}>{!!localStorage.userId ? "Browse Artworks" : ""}</Link>
-        <Link to={`/account`} style={{color: "#343a40", textDecorationColor: "#929ca7"}}>{!!localStorage.userId ? "My Account" : ""}</Link>
-        <Link to="/cart" style={{color: "#343a40", textDecorationColor: "#929ca7"}}>{!!localStorage.userId ? "Cart: " + this.props.cartNum : ""}</Link>
+        <Link to="/" style={{fontFamily: "Optima", color: "white", textDecorationColor: "none"}}>ABSTRACT COMMERCE</Link>
+        <Link to="/artworks" style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "Browse Artworks" : ""}</Link>
+        <Link to={`/account`} style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "My Account" : ""}</Link>
+        <Link to="/cart" style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "Cart: " + this.props.cartNum : ""}</Link>
         {this.logButton()}
       </nav>
     )
