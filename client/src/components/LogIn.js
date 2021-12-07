@@ -9,8 +9,6 @@ class LogIn extends React.Component {
     errors: []
   }
 
-  // maybe
-
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -104,6 +102,7 @@ class LogIn extends React.Component {
 
   render(){
     return <div style={{textAlign: "Center",  fontFamily: "Courier New, Monospace", fontWeight: "100", color: "#343a40"}}>
+        <p style={{fontFamily: "Optima"}}>A store for my original artworks.</p>
   
       <ul>
         {

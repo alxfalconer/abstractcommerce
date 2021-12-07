@@ -125,7 +125,7 @@ Artwork.create!([
     img: 'https://i.ibb.co/f2LL7Pj/237-Angels-A-Rose.jpg',
     description: "Acrylic, ink and pencil on 11x14 mixed media paper.",
     price: 120,
-    category: "Canvas"
+    category: "Paper"
   },
   {
     name: 'Jarbo',
@@ -170,7 +170,7 @@ Artwork.create!([
     img: 'https://i.ibb.co/S3CbdPM/Other-Angels.jpg',
     description: "Acrylic and china marker on 9x12in frame insert.",
     price: 80,
-    category: "Paper"
+    category: "Other"
   },
 
   {

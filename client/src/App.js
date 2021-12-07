@@ -79,11 +79,6 @@ class App extends React.Component {
   }
 
   addToCart = (artwork) => {
-    // console.log(rock)
-    // this.setState({
-    //   cart: [...this.state.cart, rock],
-    //   total: this.state.total + rock.price
-    // })
     localStorage.cart = this.state.cart.map(item => item.id )
     if (this.state.loggedInUserId) {
       fetch('http://localhost:3000/purchases', {

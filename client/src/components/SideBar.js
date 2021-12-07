@@ -12,7 +12,6 @@ const style = {
     fontWeight: "100", 
     color: "#343a40", 
     textAlign: "center"
-    // justifyContent: "space-around"
   }
 
 export class SideBar extends Component {
@@ -27,16 +26,6 @@ export class SideBar extends Component {
         this.props.filterArtworksByCategory(event.target.value)
     }
 
-    alphabetSort = async () =>{
-        await this.setState({
-            sortedArtworks: [...this.props.displayArtworks].sort((a, b) => {
-                if(a.name < b.name) { return -1; }
-                if(a.name > b.name) { return 1; }
-                return 0;
-            })
-        })
-        this.props.sortArtworks(this.state.sortedArtworks)
-    }
    lowPriceSort = async () =>{
         await this.setState({
             sortedArtworks: [...this.props.displayArtworks].sort((a, b) => {
@@ -57,27 +46,6 @@ export class SideBar extends Component {
         })
         this.props.sortArtworks(this.state.sortedArtworks)
     }
-
-    // ratingSort = async () =>{
-    //     await this.setState({
-    //         sortedArtworks: [...this.props.displayArtworks].sort((a, b) => {
-    //             if(a.rating > b.rating) { return -1; }
-    //             if(a.rating < b.rating) { return 1; }
-    //             return 0;
-    //         })
-    //     })
-    //     this.props.sortArtworks(this.state.sortedArtworks)
-    // }
-    // rareSort = async () =>{
-    //     await this.setState({
-    //         sortedArtworks: [...this.props.displayArtworks].sort((a, b) => {
-    //             if(a.quantity < b.quantity) { return -1; }
-    //             if(a.quantity > b.quantity) { return 1; }
-    //             return 0;
-    //         })
-    //     })
-    //     this.props.sortArtworks(this.state.sortedArtworks)
-    // }
     
     render() {
         return (
@@ -87,16 +55,14 @@ export class SideBar extends Component {
                 <NavLink to="/artworks" style={{marginBottom: "20px"}}>
                     <select value={this.state.value} onChange={this.handleCategoryChange}>
                         <option value="All">All</option>
-                        <option value="Metamorphic">Paper</option>
-                        <option value="Sedimentary">Canvas</option>
-                        <option value="Special">Digital</option>
-                        <option value="Dangerous">Photo</option>
-                        <option value="Dangerous">Collage</option>
-                        <option value="Dangerous">Other</option>
+                        <option value="Paper">Paper</option>
+                        <option value="Canvas">Canvas</option>
+                        <option value="Digital">Digital</option>
+                        <option value="Collage">Collage</option>
+                        <option value="Other">Other</option>
                     </select>
                 </NavLink>
                 <label>Sort By:</label>
-                <button style={{fontSize: "18px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "20px"}}  onClick={this.alphabetSort}>Name</button>
                 <button style={{fontSize: "18px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "20px"}}  onClick={this.lowPriceSort}>Low Price</button>
                 <button style={{fontSize: "18px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "20px"}}  onClick={this.highPriceSort}>High Price</button>
 

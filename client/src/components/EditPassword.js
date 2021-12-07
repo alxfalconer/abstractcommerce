@@ -5,8 +5,6 @@ class EditPassword extends React.Component{
     state = {
         password: "",
         }
-    
-        // maybe
 
     editPassword = async (newPassword) => {
         await fetch(`http://localhost:3000/users/${localStorage.userId}`, {

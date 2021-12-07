@@ -11,7 +11,6 @@ export const Footer = () => {
         <h3><img className="blacksig" src={blacksig} alt="blacksig"/></h3>
         {/* <Player/> */}
         <br></br>
-      {/* <h4>Brought to you by Alexander Falconer</h4> */}
       </div>
     </footer>
   );

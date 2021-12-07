@@ -6,8 +6,6 @@ class EditUsername extends React.Component{
         username: "",
     }
 
-    // maybe
-
     editUsername = async (newUsername) => {
         await fetch(`http://localhost:3000/users/${localStorage.userId}`, {
             method: "PATCH",
@@ -19,6 +17,10 @@ class EditUsername extends React.Component{
               username: newUsername}
             })
         })
+            this.setState({
+                username: ""
+            })
+        
         alert("Your username has been updated.")
     }
 

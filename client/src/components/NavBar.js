@@ -14,7 +14,6 @@ export class NavBar extends Component {
     e.preventDefault()
     this.props.handleLogOut()
   }
-// maybe
   render() {
 
     return (

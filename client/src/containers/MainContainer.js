@@ -4,13 +4,11 @@ import LogIn from '../components/LogIn';
 import {Footer} from '../components/Footer';
 import { Route, Switch, Redirect} from 'react-router-dom'
 
-
 export class MainContainer extends Component {
 
     loginRender = () => {if (!!this.props.token) {return <Redirect to="/artworks" />} else return <Redirect to="/login"/>}
     
     render() {
-        // console.log(this.props)
         return (
             <>
                 {this.loginRender()}
@@ -46,9 +44,7 @@ export class MainContainer extends Component {
     }
 
     renderArtwork = (renderParams) => {
-        // console.log(renderParams)
         const id = parseInt(renderParams.match.params.id)
-        // this will render a rock
         const theArtwork = this.props.displayArtworks.find(artwork => artwork.id === id)
         return <DetailContainer addToCart={this.props.addToCart} artwork={ theArtwork } />
     }
