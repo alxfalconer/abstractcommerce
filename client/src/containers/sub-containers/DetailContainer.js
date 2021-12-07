@@ -30,7 +30,7 @@ class DetailContainer extends React.Component {
         if (this.props.artwork.quantity - this.props.artwork.purchases.length === 0) {
             return <h1>SOLD OUT</h1>
         } else {
-            return <button style={{fontSize: "18px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "30px"}} onClick={this.handleClick} variant="primary">Add to Cart</button>
+            return <button className='btn' style={{fontSize: "18px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "30px"}} onClick={this.handleClick} variant="primary">Add to Cart</button>
         }
     }
     
@@ -52,7 +52,6 @@ class DetailContainer extends React.Component {
                   
                     <h4>${artwork.price}</h4>
                  
-
                     {this.renderButton()}
                 </div>
             </div>

@@ -35,14 +35,14 @@ class AccountContainer extends React.Component{
     render(){
     return (
         <div style={{textAlign: "Center", marginTop:"3%", fontFamily: "Courier New, Monospace", fontWeight: "100", color: "#343a40"}}>
-        <h3 style={{margin: "30px"}}>Edit Info</h3>
+        <h3 style={{margin: "30px", fontFamily: "Optima"}}>Update Info</h3>
          <EditUsername />
          <EditPassword />
          <br></br>
-         <h3>Past Orders</h3>
-         {/* <div style={{margin: "30px"}}>{this.myOrders()}</div>  */}
-         {/* <p>{this.myOrders()}</p> */}
-         <h3>Delete Account</h3>
+         <h3 style={{fontFamily: "Optima"}}>Past Orders</h3>
+         {/* <div style={{margin: "30px"}}>{this.myOrders()}</div> 
+         <p>{this.myOrders()}</p> */}
+         <h3 style={{fontFamily: "Optima"}}>Delete Account</h3>
          <DeleteUser />
         </div>
     )}

@@ -36,7 +36,7 @@ class EditPassword extends React.Component{
     render(){
         return(
             <form onSubmit={this.handleChangePassword}>
-         <label style={{margin: "20px"}}>Password:</label>      
+         <label style={{margin: "20px", fontFamily: "Optima"}}>Password:</label>      
         <input
           type="password"
           value={this.state.password}
@@ -44,7 +44,7 @@ class EditPassword extends React.Component{
           name="password"
           autoComplete="new-password"
         />
-        <input type="submit" style={{fontSize: "18px", border: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "20px", padding: "5px"}} />
+        <input className='btn'  style={{fontSize: "15px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "30px"}}  type="submit"  />
       </form>
         )
     }

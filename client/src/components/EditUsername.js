@@ -37,7 +37,7 @@ class EditUsername extends React.Component{
     render(){
         return(
             <form onSubmit={this.handleChangeUsername}>
-            <label style={{margin: "20px"}}>Username:</label>
+            <label style={{margin: "20px", fontFamily: "Optima"}}>Username:</label>
             <input
               type="text"
               autoComplete="new-username"
@@ -45,7 +45,7 @@ class EditUsername extends React.Component{
               name="username" 
               value={ this.state.username /* for controlled form input status */ } 
             />
-            <input type="submit" style={{fontSize: "18px", border: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "20px", padding: "5px"}} />
+            <input className='btn' type="submit"  style={{fontSize: "15px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "30px"}} />
           </form>  
         )
     }

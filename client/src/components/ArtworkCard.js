@@ -10,10 +10,10 @@ const ArtworkCard = (props) => {
             <NavLink to={"/artworks/" + artwork.id} style={{textDecorationColor: "#929ca7"}}>
                 <img className="thumbnail-img" src={artwork.img} alt={artwork.name} />
                 <div>
-                    <h4 style={{color: "#343a40"}}>{artwork.name}</h4>
+                    <h4 style={{color: "#343a40", fontFamily: "Optima", fontSize: "18px"}}>{artwork.name}</h4>
                 </div>
                 <footer>
-                    <small className="text-muted">${artwork.price}</small>
+                    <small style={{fontFamily: "Optima", fontSize: "18px"}} className="text-muted">${artwork.price}</small>
                 </footer>
             </NavLink>
         </div>

@@ -28,14 +28,14 @@ export class NavBar extends Component {
         paddingBottom: "25px", 
         paddingTop: "25px", 
         textAlign: "Center", 
-        fontSize: "20px", 
+        fontSize: "18px", 
         marginTop:"3%", 
-        fontFamily: "Courier New, Monospace", 
+        fontFamily: "Optima", 
         fontWeight: "100", 
         color: "#343a40", 
         display: "flex", 
         justifyContent: "space-around"}}>
-        <Link to="/" style={{fontFamily: "Optima", color: "white", textDecorationColor: "none"}}>ABSTRACT COMMERCE</Link>
+        <Link to="/" style={{fontSize: "23px", fontFamily: "Optima", color: "white", textDecorationColor: "none"}}>ABSTRACT COMMERCE</Link>
         <Link to="/artworks" style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "Browse Artworks" : ""}</Link>
         <Link to={`/account`} style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "My Account" : ""}</Link>
         <Link to="/cart" style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "Cart: " + this.props.cartNum : ""}</Link>

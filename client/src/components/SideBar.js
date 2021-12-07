@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 
 const style = {
-    margin: "10px",
+    margin: "50px",
     position: "fixed",
     height: "100%",
     display: "flex",
+    fontSize: "20px", 
     flexDirection: "column",
     flexWrap: "wrap",
-    fontFamily: "Courier New, Monospace", 
+    fontFamily: "Optima", 
     fontWeight: "100", 
     color: "#343a40", 
     textAlign: "center"
@@ -53,7 +54,7 @@ export class SideBar extends Component {
                 <h4 style={{marginTop: "50px", marginBottom: "30px"}}>Categories:</h4>
                 <label>Filter:</label>
                 <NavLink to="/artworks" style={{marginBottom: "20px"}}>
-                    <select value={this.state.value} onChange={this.handleCategoryChange}>
+                    <select style={{fontSize: "19px"}} value={this.state.value} onChange={this.handleCategoryChange}>
                         <option value="All">All</option>
                         <option value="Paper">Paper</option>
                         <option value="Canvas">Canvas</option>
@@ -62,9 +63,12 @@ export class SideBar extends Component {
                         <option value="Other">Other</option>
                     </select>
                 </NavLink>
+                <br></br>
                 <label>Sort By:</label>
-                <button style={{fontSize: "18px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "20px"}}  onClick={this.lowPriceSort}>Low Price</button>
-                <button style={{fontSize: "18px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "20px"}}  onClick={this.highPriceSort}>High Price</button>
+                <br></br>
+                <button className="btn" style={{fontSize: "16px", fontFamily: "Optima"}} onClick={this.lowPriceSort}>Low Price</button>
+                <br></br>
+                <button className="btn" style={{fontSize: "16px", fontFamily: "Optima"}} onClick={this.highPriceSort}>High Price</button>
 
             </div>
         )
