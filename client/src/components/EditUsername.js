@@ -6,6 +6,8 @@ class EditUsername extends React.Component{
         username: "",
     }
 
+    // maybe
+
     editUsername = async (newUsername) => {
         await fetch(`http://localhost:3000/users/${localStorage.userId}`, {
             method: "PATCH",

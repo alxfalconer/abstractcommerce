@@ -3,6 +3,8 @@ import {Redirect} from 'react-router-dom'
 
 class DeleteUser extends React.Component{
 
+    // maybe
+
     delete = async () => {
         await fetch(`http://localhost:3000/users/${localStorage.userId}`, {
             method: 'DELETE',
@@ -23,3 +25,4 @@ class DeleteUser extends React.Component{
 }
 
 export default DeleteUser
+

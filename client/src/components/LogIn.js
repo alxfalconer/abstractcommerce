@@ -9,6 +9,8 @@ class LogIn extends React.Component {
     errors: []
   }
 
+  // maybe
+
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -101,7 +103,8 @@ class LogIn extends React.Component {
   }
 
   render(){
-    return <div style={{textAlign: "Center", marginTop:"10%", fontFamily: "Courier New, Monospace", fontWeight: "100", color: "#343a40"}}>
+    return <div style={{textAlign: "Center",  fontFamily: "Courier New, Monospace", fontWeight: "100", color: "#343a40"}}>
+  
       <ul>
         {
           this.state.errors.map(error => <li>{ error }</li>)
@@ -134,6 +137,7 @@ class LogIn extends React.Component {
                     value={ this.state.password } />
                     <br></br><br></br>
             <input type="submit" />
+            <br></br><br></br><br></br>
           </form>
         </section>
         :

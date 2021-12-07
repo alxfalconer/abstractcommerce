@@ -10,7 +10,7 @@ const ArtworkCard = (props) => {
     return (
         <div className='product-div'> 
             <NavLink to={"/artworks/" + artwork.id} style={{textDecorationColor: "#929ca7"}}>
-                <img height="200px" variant="top" src={artwork.img} alt={artwork.name} />
+                <img className="thumbnail-img" src={artwork.img} alt={artwork.name} />
                 <div>
                     <h4 style={{color: "#343a40"}}>{artwork.name}</h4>
                     {/* <p style={{minHeight: "30px", maxHeight: "150px", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis"}}>{rock.description}</p> */}

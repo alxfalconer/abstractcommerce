@@ -6,6 +6,8 @@ export class LongCard extends Component {
         this.props.removeFromCart(this.props.cartItem)
     }
 
+    // maybe
+
     render() {
         console.log(this.props.cartItem)
         return (<>
