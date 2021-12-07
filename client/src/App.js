@@ -126,7 +126,7 @@ class App extends React.Component {
     return (
       <React.Fragment >
         <HeaderContainer handleLogOut={this.logOutClick} token={this.state.token} cartNum={this.state.cart.length}/>
-        <MainContainer removeFromCart={this.removeFromCart} sortRocks={this.sortArtworks} filterArtworksByCategory={this.filterArtworksByCategory} clearCart={this.clearCart} addToCart={this.addToCart} setToken={this.setToken} token={this.state.token} loggedInUserId={this.state.loggedInUserId} displayArtworks={this.state.displayArtworks} total={this.state.total} currentCart={this.state.cart}/>
+        <MainContainer removeFromCart={this.removeFromCart} sortArtworks={this.sortArtworks} filterArtworksByCategory={this.filterArtworksByCategory} clearCart={this.clearCart} addToCart={this.addToCart} setToken={this.setToken} token={this.state.token} loggedInUserId={this.state.loggedInUserId} displayArtworks={this.state.displayArtworks} total={this.state.total} currentCart={this.state.cart}/>
         <Footer/>
       </React.Fragment>
     )
