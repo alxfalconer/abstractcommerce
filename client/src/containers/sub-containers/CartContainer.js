@@ -16,6 +16,7 @@ class CartContainer extends React.Component {
             this.setState({
                 redirect: true
             })
+            return <Redirect to={'/'} />
         }
     }
 
@@ -48,10 +49,12 @@ class CartContainer extends React.Component {
             })
             .then(res => res.json())
             .then(orderObj => {
+                
                 newOrder = orderObj
                 console.log(newOrder)
                 // newOrder gets sent to App.js to setState
                 console.log(completedOrder)
+                window.alert("added")
                 // completedOrder is used to render a 'Completed Order' component
             })
         })
@@ -128,7 +131,7 @@ class CartContainer extends React.Component {
                 {this.props.currentCart.map(item => <LongCard removeFromCart={this.props.removeFromCart} key={item.id} cartItem={item} />)}
             </li>
             <h2>Total: ${this.props.total}</h2>
-            <button className="btn" style={{fontSize: "18px"}} onClick={this.handleCheckout}>Checkout</button> 
+            <button className="btn" style={{fontSize: "18px"}} onClick={this.handleCheckout} >Checkout</button> 
             <br></br><br></br>
             </div>
         }  

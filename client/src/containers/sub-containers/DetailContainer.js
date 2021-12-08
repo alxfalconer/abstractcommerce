@@ -20,12 +20,6 @@ class DetailContainer extends React.Component {
         this.setState({value: event.target.value})
     }
 
-    // showRock = () => {
-    //     for (let i = 1; i < count+1; i++) {
-    //         return <option>i</option> 
-    //     }
-    // }
-
     renderButton = () => {
         if (this.props.artwork.quantity - this.props.artwork.purchases.length === 0) {
             return <h1>SOLD OUT</h1>
@@ -44,7 +38,7 @@ class DetailContainer extends React.Component {
         console.log(artwork.purchases.length)
 
         return (
-            <div style={{textAlign: "Center", fontFamily: "Courier New, Monospace", fontWeight: "100", color: "#343a40"}}>
+            <div style={{textAlign: "Center", fontFamily: "Optima", fontWeight: "100", color: "#343a40"}}>
                 <h2 style={{margin: "25px"}}>{artwork.name}</h2>
                 <img width="700px" src={artwork.img} alt={artwork.name}/>
                 <div>
