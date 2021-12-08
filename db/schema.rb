@@ -40,16 +40,6 @@ ActiveRecord::Schema.define(version: 2021_12_07_014048) do
     t.index ["order_id"], name: "index_purchases_on_order_id"
   end
 
-  create_table "rocks", force: :cascade do |t|
-    t.string "name"
-    t.string "img"
-    t.text "description"
-    t.integer "price"
-    t.string "category"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -58,4 +48,6 @@ ActiveRecord::Schema.define(version: 2021_12_07_014048) do
   end
 
   add_foreign_key "orders", "users"
+  add_foreign_key "purchases", "orders"
+  add_foreign_key "purchases", "artworks"
 end

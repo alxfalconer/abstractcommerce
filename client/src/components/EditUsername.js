@@ -37,7 +37,7 @@ class EditUsername extends React.Component{
     render(){
         return(
             <form onSubmit={this.handleChangeUsername}>
-            <label style={{margin: "20px", fontFamily: "Optima"}}>Username:</label>
+            <label style={{margin: "20px", fontFamily: "Optima"}}>New Username:</label>
             <input
               type="text"
               autoComplete="new-username"

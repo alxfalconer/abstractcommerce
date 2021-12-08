@@ -6,7 +6,8 @@ import DeleteUser from '../../components/DeleteUser'
 
 class AccountContainer extends React.Component{
     state = {
-        myOrders: []
+        myOrders: [],
+        userName: ""
     }
     componentDidMount = async () => {
         let rawUser = await fetch(`http://localhost:3000/users/${localStorage.userId}`, {
@@ -17,31 +18,36 @@ class AccountContainer extends React.Component{
             })
             let user = await rawUser.json()
             this.setState({
-            myOrders: user.orders
+            myOrders: user.orders,
+            userName: user.username
             })
             console.log(this.state.myOrders)
         }
-   
-        // pastOrders = () => {
-        //     console.log(this.myOrders)
-        //     return !!this.state.myOrders.length ? this.state.myOrders.filter(order => order.checkedout === true ) : false
-        // }
 
-        // myOrders = () => {
-        //     return !!this.pastOrders() ? this.pastOrders().map(order => <OrderCard key={order.id} order={order} />) : "You have not placed any orders."
-        // }
+        
+   
+        pastOrders = () => {
+            console.log(this.state.myOrders)
+            return !!this.state.myOrders.length ? this.state.myOrders.filter(order => order.checkedout === true ) : false
+        }
+
+        myOrders = () => {
+            return !this.pastOrders() ? this.state.myOrders.map(order => <OrderCard key={order.id} order={this.state.myOrders} />) : "You have not placed any orders."
+       
+        }
 
 
     render(){
     return (
-        <div style={{textAlign: "Center", marginTop:"3%", fontFamily: "Courier New, Monospace", fontWeight: "100", color: "#343a40"}}>
+        <div style={{textAlign: "Center", marginTop:"3%", fontFamily: "Optima", fontWeight: "100", color: "#343a40"}}>
         <h3 style={{margin: "30px", fontFamily: "Optima"}}>Update Info</h3>
+        <p>Current Username: {this.state.userName}</p>
          <EditUsername />
          <EditPassword />
          <br></br>
          <h3 style={{fontFamily: "Optima"}}>Past Orders</h3>
-         {/* <div style={{margin: "30px"}}>{this.myOrders()}</div> 
-         <p>{this.myOrders()}</p> */}
+         {/* <div style={{margin: "30px"}}>{this.state.myOrders}</div>  */}
+         <p>{this.state.myOrders.length}</p>
          <h3 style={{fontFamily: "Optima"}}>Delete Account</h3>
          <DeleteUser />
         </div>

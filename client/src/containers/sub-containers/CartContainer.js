@@ -99,24 +99,24 @@ class CartContainer extends React.Component {
     cartItems = () => {
         if(this.props.currentCart.length < 1){
             return <p style ={{
-                marginTop: "20%",
-                fontFamily: "Courier New, Monospace", 
+              
+                fontFamily: "Optima", 
                 fontWeight: "100", 
                 fontSize: "18px",
                 color: "#343a40", 
                 textAlign: "center",
                 justifyContent: "space-around"
             }}>
+                <h1 style={{textAlign: "Center"}}>C A R T</h1>
                 There are no items in your cart at this time.
                 </p>
         } else{
-            return   <div style={{textAlign: "Center", marginTop:"10%", fontFamily: "Courier New, Monospace", fontWeight: "100", color: "#343a40"}}>
+            return   <div style={{textAlign: "Center", marginTop:"10%", fontFamily: "Optima", fontWeight: "100", color: "#343a40"}}>
             <li style={{   
-                margin: "175px", 
-                display: "flex",
+                margin: "50px", 
                 flexDirection: "column",
                 flexWrap: "wrap",
-                fontFamily: "Courier New, Monospace", 
+                fontFamily: "Optima", 
                 fontWeight: "100", 
                 fontSize: "18px",
                 color: "#343a40", 
@@ -124,10 +124,12 @@ class CartContainer extends React.Component {
                 justifyContent: "space-around",
                 listStyle: "none"
                 }}>
+                    <h1 style={{textAlign: "Center"}}>C A R T</h1>
                 {this.props.currentCart.map(item => <LongCard removeFromCart={this.props.removeFromCart} key={item.id} cartItem={item} />)}
             </li>
             <h2>Total: ${this.props.total}</h2>
-            <button style={{fontSize: "18px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "20px"}} onClick={this.handleCheckout}>Checkout</button> 
+            <button className="btn" style={{fontSize: "18px"}} onClick={this.handleCheckout}>Checkout</button> 
+            <br></br><br></br>
             </div>
         }  
     }

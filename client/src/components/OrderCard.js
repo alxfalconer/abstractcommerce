@@ -21,7 +21,7 @@ class OrderCard extends React.Component {
     }
 
     purchases = () => {
-    return !!this.state.purchases.length ? this.state.purchases.map(purchase => <li style={{listStyle: "none"}}>{purchase.quantity} {purchase.rock.name} ${purchase.quantity * purchase.artwork.price}</li>) : false
+    return !!this.state.purchases.length ? this.state.purchases.map(purchase => <li style={{listStyle: "none"}}>{purchase.quantity} {purchase.artwork.name} ${purchase.quantity * purchase.artwork.price}</li>) : false
     }
 
     reducer = (total, num) => total + num
