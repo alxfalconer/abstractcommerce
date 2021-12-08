@@ -54,7 +54,7 @@ class CartContainer extends React.Component {
                 console.log(newOrder)
                 // newOrder gets sent to App.js to setState
                 console.log(completedOrder)
-                window.alert("added")
+                window.alert("Order Complete")
                 // completedOrder is used to render a 'Completed Order' component
             })
         })

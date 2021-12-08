@@ -47,11 +47,19 @@ export class SideBar extends Component {
         })
         this.props.sortArtworks(this.state.sortedArtworks)
     }
+
+    shuffleArt = async () =>{
+        await this.setState({
+            sortedArtworks: [...this.props.displayArtworks].sort((a, b) => Math.random() - 0.5)
+         
+        })
+        this.props.sortArtworks(this.state.sortedArtworks)
+    }
     
     render() {
         return (
             <div style={style}>
-                <h4 style={{marginTop: "50px", marginBottom: "30px"}}>Categories:</h4>
+                <h4>Categories:</h4>
                 <label>Filter:</label>
                 <NavLink to="/artworks" style={{marginBottom: "20px"}}>
                     <select style={{fontSize: "19px"}} value={this.state.value} onChange={this.handleCategoryChange}>
@@ -69,6 +77,8 @@ export class SideBar extends Component {
                 <button className="btn" style={{fontSize: "16px", fontFamily: "Optima"}} onClick={this.lowPriceSort}>Low Price</button>
                 <br></br>
                 <button className="btn" style={{fontSize: "16px", fontFamily: "Optima"}} onClick={this.highPriceSort}>High Price</button>
+                <br></br>
+                <button className="btn" style={{fontSize: "16px", fontFamily: "Optima"}} onClick={this.shuffleArt}>Shuffle</button>
 
             </div>
         )

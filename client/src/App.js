@@ -25,12 +25,13 @@ class App extends React.Component {
       this.setState({
         token: localStorage.token,
         loggedInUserId: localStorage.userId,
+        orderId: localStorage.orderId,
         allArtworks: artworks,
         displayArtworks: artworks
       })
   }
 
-  setToken = ({ token, user_id, order_id, purchases, total }) => {
+  setToken = ({ token, user_id, order_id, purchase_id, purchases, total }) => {
     // console.log(token)
     // console.log(user_id)
     // console.log(order_id)
@@ -39,11 +40,13 @@ class App extends React.Component {
     localStorage.token = token
     localStorage.userId = user_id
     localStorage.orderId = order_id
+    localStorage.purchaseId = purchase_id
 
     this.setState({
       token: token,
       loggedInUserId: user_id,
       orderId: order_id,
+      purchaseId: purchase_id,
       cart: !!purchases ? purchases : [],
       total: total
     })
@@ -97,6 +100,7 @@ class App extends React.Component {
       .then(purchase => {
         this.setState({
           cart: [...this.state.cart, purchase],
+          order_id: localStorage.orderId,
           total: this.state.total + purchase.artwork.price
         })
       })
@@ -126,7 +130,7 @@ class App extends React.Component {
     return (
       <React.Fragment >
         <HeaderContainer handleLogOut={this.logOutClick} token={this.state.token} cartNum={this.state.cart.length}/>
-        <MainContainer removeFromCart={this.removeFromCart} sortArtworks={this.sortArtworks} filterArtworksByCategory={this.filterArtworksByCategory} clearCart={this.clearCart} addToCart={this.addToCart} setToken={this.setToken} token={this.state.token} loggedInUserId={this.state.loggedInUserId} displayArtworks={this.state.displayArtworks} total={this.state.total} currentCart={this.state.cart}/>
+        <MainContainer removeFromCart={this.removeFromCart} sortArtworks={this.sortArtworks} filterArtworksByCategory={this.filterArtworksByCategory} clearCart={this.clearCart} addToCart={this.addToCart} setToken={this.setToken} token={this.state.token} purchaseId={this.state.purchaseId} loggedInUserId={this.state.loggedInUserId} displayArtworks={this.state.displayArtworks} total={this.state.total} currentCart={this.state.cart}/>
         <Footer/>
       </React.Fragment>
     )

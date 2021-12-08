@@ -7,7 +7,8 @@ import DeleteUser from '../../components/DeleteUser'
 class AccountContainer extends React.Component{
     state = {
         myOrders: [],
-        userName: ""
+        userName: "",
+        purchases: []
     }
     componentDidMount = async () => {
         let rawUser = await fetch(`http://localhost:3000/users/${localStorage.userId}`, {
@@ -16,25 +17,37 @@ class AccountContainer extends React.Component{
                 "Authorization": this.props.token
             }
             })
+            let rawOrder = await fetch (`http://localhost:3000/orders/${localStorage.orderId}`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": localStorage.token
+                }
+            })
             let user = await rawUser.json()
+            let order = await rawOrder.json()
+            let purchases = order.purchases
+            
             this.setState({
             myOrders: user.orders,
-            userName: user.username
+            userName: user.username,
+            purchases
             })
-            console.log(this.state.myOrders)
+            console.log(this.state.myOrders, this.state.userName, this.state.purchases)
         }
 
         
    
-        pastOrders = () => {
-            console.log(this.state.myOrders)
-            return !!this.state.myOrders.length ? this.state.myOrders.filter(order => order.checkedout === true ) : false
-        }
+        // pastOrders = () => {
+        //     console.log(this.state.myOrders)
+        //     return !!this.state.myOrders.length ? this.state.myOrders.filter(order => order.checkedout === true ) : false
+        // }
 
-        myOrders = () => {
-            return !this.pastOrders() ? this.state.myOrders.map(order => <OrderCard key={order.id} order={this.state.myOrders} />) : "You have not placed any orders."
+        // myOrders = () => {
+        //     this.state.purchases
+        //     console.log(this.state.myOrders)
+        //     // return !this.state.myOrders ? this.state.myOrders.map(order => <OrderCard key={order.id} order={this.state.myOrders} />) : "You have not placed any orders."
        
-        }
+        // }
 
 
     render(){
@@ -47,7 +60,7 @@ class AccountContainer extends React.Component{
          <br></br>
          <h3 style={{fontFamily: "Optima"}}>Past Orders</h3>
          {/* <div style={{margin: "30px"}}>{this.state.myOrders}</div>  */}
-         <p>{this.state.myOrders.length}</p>
+         <p>{this.state.purchases.length}</p>
          <h3 style={{fontFamily: "Optima"}}>Delete Account</h3>
          <DeleteUser />
         </div>
