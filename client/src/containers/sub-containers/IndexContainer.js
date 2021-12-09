@@ -22,7 +22,7 @@ class IndexContainer extends React.Component {
 
         return (
             <React.Fragment >
-            <SideBar sortArtworks={this.props.sortArtworks} filterArtworksByCategory={this.props.filterArtworksByCategory} displayArtworks={this.props.displayArtworks}/>
+            <SideBar allArtworks={this.props.allArtworks} sortArtworks={this.props.sortArtworks} filterArtworksByCategory={this.props.filterArtworksByCategory} displayArtworks={this.props.displayArtworks}/>
                 <div style={style}>
                 {displayArtworks}
                 </div>

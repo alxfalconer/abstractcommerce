@@ -19,8 +19,18 @@ export class SideBar extends Component {
 
     state = {
         value: '',
-        sortedArtworks: []
+        sortedArtworks: [],
+        allArtworks: []
     }
+
+    componentDidMount = async() => {
+        let rawArtworks = await fetch('http://localhost:3000/artworks')
+        let artworks = await rawArtworks.json() 
+          this.setState({
+            allArtworks: artworks,
+            displayArtworks: artworks
+          })
+      }
     
     handleCategoryChange = (event) => {
         this.setState({value: event.target.value})
@@ -55,6 +65,13 @@ export class SideBar extends Component {
         })
         this.props.sortArtworks(this.state.sortedArtworks)
     }
+
+        resetArt = async () => {
+            this.setState({
+                displayArtworks: this.state.allArtworks
+              })
+              this.props.sortArtworks(this.state.allArtworks)
+            }
     
     render() {
         return (
@@ -80,6 +97,7 @@ export class SideBar extends Component {
                 <br></br>
                 <button className="btn" style={{fontSize: "16px", fontFamily: "Optima"}} onClick={this.shuffleArt}>Shuffle</button>
                 <br></br>
+                <button className="btn" style={{fontSize: "16px", fontFamily: "Optima"}} onClick={this.resetArt}>Reset</button>
 
             </div>
         )

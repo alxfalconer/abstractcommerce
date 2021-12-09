@@ -61,9 +61,9 @@ class AccountContainer extends React.Component{
          {/* {this.state.myOrders.map(order => <div>{order.this.state.myOrders}</div>)} */}
          {/* <p>{this.myOrders.length}</p> */}
          <div>
-             {this.state.myOrders.map((myOrder) => (
-                 <p>[{myOrder.purchases}]</p>
-             ))}
+             {/* {this.myOrders.map((myOrder) => ( */}
+                 {/* <p>[{this.state.myOrders.length}]</p> */}
+         
          </div>
          <h3 style={{fontFamily: "Optima"}}>Delete Account</h3>
          <DeleteUser />

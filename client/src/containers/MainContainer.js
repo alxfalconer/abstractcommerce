@@ -15,7 +15,7 @@ export class MainContainer extends Component {
 
                 <Switch>
                     <Route exact path="/artworks" >
-                        <IndexContainer sortArtworks={this.props.sortArtworks} displayArtworks={this.props.displayArtworks} filterArtworksByCategory={this.props.filterArtworksByCategory} />
+                        <IndexContainer allArtworks={this.props.allArtworks} sortArtworks={this.props.sortArtworks} displayArtworks={this.props.displayArtworks} filterArtworksByCategory={this.props.filterArtworksByCategory} />
                     </Route>
 
                     <Route path="/artworks/:id">
