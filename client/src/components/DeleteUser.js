@@ -19,7 +19,7 @@ class DeleteUser extends React.Component{
 
     render(){
         return(
-            <button className='btn' onClick={this.delete}  style={{fontSize: "18px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "30px"}} >Delete</button>
+            <button className='delete-btn' onClick={this.delete}>Delete</button>
         )
     }
 }

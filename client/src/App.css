@@ -75,6 +75,36 @@ footer{
   text-transform: capitalize;
 }
 
+.delete-btn {
+  padding: 8px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  outline: none;
+  background:rgb(95, 0, 0) 0%;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 18px
+}
+
+
+
+.title-style {
+  color: #343a40;
+  font-family: Optima; 
+  font-size: 18px;
+}
+
+.price {
+  font-family: "Optima";
+  font-size: 18px;
+}
+
+.label {
+  margin: 20px; 
+  font-Family: "Optima"
+}
+
 
 
 @keyframes App-logo-spin {

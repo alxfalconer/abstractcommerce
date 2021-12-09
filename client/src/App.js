@@ -25,6 +25,7 @@ class App extends React.Component {
       this.setState({
         token: localStorage.token,
         loggedInUserId: localStorage.userId,
+        cartItems: localStorage.purchases,
         orderId: localStorage.orderId,
         allArtworks: artworks,
         displayArtworks: artworks
@@ -101,7 +102,8 @@ class App extends React.Component {
         this.setState({
           cart: [...this.state.cart, purchase],
           order_id: localStorage.orderId,
-          total: this.state.total + purchase.artwork.price
+          total: this.state.total + purchase.artwork.price,
+          cartItem: localStorage.cart
         })
       })
     }

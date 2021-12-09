@@ -6,7 +6,7 @@ class OrderCard extends React.Component {
     }
 
     componentDidMount = async () => {
-        let rawOrder = await fetch (`http://localhost:3000/orders/${this.props.order.id}`, {
+        let rawOrder = await fetch (`http://localhost:3000/orders/${localStorage.orderId}`, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.token
@@ -36,7 +36,7 @@ class OrderCard extends React.Component {
 
     render(){
     return ( !!this.total() ? <div style={{ border: "solid", borderWidth: "1px", borderColor: "#929ca7", padding: "25px", width: "600px", margin: "0 auto", marginTop: "10px"}}>
-    <h5>Order # {this.props.order.id}:</h5>
+    <h5>Order # {localStorage.orderId}:</h5>
     <li style={{listStyle: "none", margin: "10px"}}>
         {this.purchases()}
     </li>

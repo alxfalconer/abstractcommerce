@@ -36,7 +36,7 @@ class EditPassword extends React.Component{
     render(){
         return(
             <form onSubmit={this.handleChangePassword}>
-         <label style={{margin: "20px", fontFamily: "Optima"}}>New Password:</label>      
+         <label className="label">New Password:</label>      
         <input
           type="password"
           value={this.state.password}

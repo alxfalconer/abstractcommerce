@@ -5,6 +5,7 @@ import EditPassword from '../../components/EditPassword'
 import DeleteUser from '../../components/DeleteUser'
 
 class AccountContainer extends React.Component{
+    
     state = {
         myOrders: [],
         userName: "",
@@ -37,17 +38,15 @@ class AccountContainer extends React.Component{
 
         
    
-        // pastOrders = () => {
-        //     console.log(this.state.myOrders)
-        //     return !!this.state.myOrders.length ? this.state.myOrders.filter(order => order.checkedout === true ) : false
-        // }
+        pastOrders = () => {
+            console.log(this.state.myOrders)
+            return !!this.state.myOrders.length ? this.state.myOrders.filter(order => order.checkedout === true ) : false
+        }
 
-        // myOrders = () => {
-        //     this.state.purchases
-        //     console.log(this.state.myOrders)
-        //     // return !this.state.myOrders ? this.state.myOrders.map(order => <OrderCard key={order.id} order={this.state.myOrders} />) : "You have not placed any orders."
+        myOrders = () => {
+            return !this.state.myOrders ? this.state.pastOrders.map(order => <OrderCard key={order.id} order={this.state.myOrders} />) : "You have not placed any orders."
        
-        // }
+        }
 
 
     render(){
@@ -59,8 +58,15 @@ class AccountContainer extends React.Component{
          <EditPassword />
          <br></br>
          <h3 style={{fontFamily: "Optima"}}>Past Orders</h3>
+         <OrderCard />
          {/* <div style={{margin: "30px"}}>{this.state.myOrders}</div>  */}
-         <p>{this.state.purchases.length}</p>
+         {/* {this.state.myOrders.map(order => <div>{order.this.state.myOrders}</div>)} */}
+         {/* <p>{this.state.myOrders.purchases}</p> */}
+         {/* <div>
+             {this.state.myOrders.map((myOrder) => (
+                 <p>[{myOrder.purchases}]</p>
+             ))}
+         </div> */}
          <h3 style={{fontFamily: "Optima"}}>Delete Account</h3>
          <DeleteUser />
         </div>
