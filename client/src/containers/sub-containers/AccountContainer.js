@@ -33,19 +33,17 @@ class AccountContainer extends React.Component{
             userName: user.username,
             purchases
             })
-            console.log(this.state.myOrders, this.state.userName, this.state.purchases)
+            // console.log(this.state.myOrders, this.state.userName, this.state.purchases)
         }
 
-        
-   
+
         pastOrders = () => {
-            console.log(this.state.myOrders)
-            return !!this.state.myOrders.length ? this.state.myOrders.filter(order => order.checkedout === true ) : false
+        console.log(this.myOrders)
+        return !!this.state.myOrders.length ? this.state.myOrders.filter(order => order.checkedout === true ) : false
         }
 
         myOrders = () => {
-            return !this.state.myOrders ? this.state.pastOrders.map(order => <OrderCard key={order.id} order={this.state.myOrders} />) : "You have not placed any orders."
-       
+            return !!this.pastOrders() ? this.state.myOrders.map(order => <OrderCard key={order.id} order={order} />) : "You have not placed any orders."
         }
 
 
@@ -57,16 +55,16 @@ class AccountContainer extends React.Component{
          <EditUsername />
          <EditPassword />
          <br></br>
-         <h3 style={{fontFamily: "Optima"}}>Past Orders</h3>
-         <OrderCard />
+         <h3 style={{fontFamily: "Optima"}}>Past Purchases</h3>
+         <OrderCard/>
          {/* <div style={{margin: "30px"}}>{this.state.myOrders}</div>  */}
          {/* {this.state.myOrders.map(order => <div>{order.this.state.myOrders}</div>)} */}
-         {/* <p>{this.state.myOrders.purchases}</p> */}
-         {/* <div>
+         {/* <p>{this.myOrders.length}</p> */}
+         <div>
              {this.state.myOrders.map((myOrder) => (
                  <p>[{myOrder.purchases}]</p>
              ))}
-         </div> */}
+         </div>
          <h3 style={{fontFamily: "Optima"}}>Delete Account</h3>
          <DeleteUser />
         </div>

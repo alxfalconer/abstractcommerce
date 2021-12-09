@@ -36,7 +36,7 @@ class App extends React.Component {
     // console.log(token)
     // console.log(user_id)
     // console.log(order_id)
-    console.log(purchases)
+    console.log(localStorage.purchaseId)
 
     localStorage.token = token
     localStorage.userId = user_id
@@ -102,6 +102,7 @@ class App extends React.Component {
         this.setState({
           cart: [...this.state.cart, purchase],
           order_id: localStorage.orderId,
+          purchase_id: localStorage.purchaseId,
           total: this.state.total + purchase.artwork.price,
           cartItem: localStorage.cart
         })

@@ -80,7 +80,6 @@ export class SideBar extends Component {
                 <br></br>
                 <button className="btn" style={{fontSize: "16px", fontFamily: "Optima"}} onClick={this.shuffleArt}>Shuffle</button>
                 <br></br>
-                <button className="btn" style={{fontSize: "16px", fontFamily: "Optima"}} onClick={this.resetArt}>Reset</button>
 
             </div>
         )

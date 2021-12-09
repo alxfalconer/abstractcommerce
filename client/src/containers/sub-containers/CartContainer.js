@@ -2,7 +2,6 @@ import React from 'react';
 import LongCard from '../../components/LongCard'
 import { Redirect } from 'react-router-dom'
 
-
 class CartContainer extends React.Component {
 
     state = {
