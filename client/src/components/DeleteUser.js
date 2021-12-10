@@ -1,5 +1,5 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom'
+import {withRouter, Redirect} from 'react-router-dom'
 
 class DeleteUser extends React.Component{
 
@@ -11,18 +11,19 @@ class DeleteUser extends React.Component{
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.token
-            }
-            
+            } 
         })
-        return <Redirect to={'/'} />
+        window.alert("Account deleted")
+        this.props.history.push("/")
     } 
 
     render(){
         return(
             <button className='delete-btn' onClick={this.delete}>Delete</button>
+            
         )
     }
 }
 
-export default DeleteUser
+export default withRouter(DeleteUser)
 

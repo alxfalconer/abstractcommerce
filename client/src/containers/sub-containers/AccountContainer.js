@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter, Redirect} from 'react-router-dom'
 import OrderCard from '../../components/OrderCard'
 import EditUsername from '../../components/EditUsername'
 import EditPassword from '../../components/EditPassword'
@@ -9,7 +10,11 @@ class AccountContainer extends React.Component{
     state = {
         myOrders: [],
         userName: "",
-        purchases: []
+        purchases: [],
+        checkedOut: [],
+        token: localStorage.token,
+        loggedInUserId: localStorage.userId,
+        
     }
     componentDidMount = async () => {
         let rawUser = await fetch(`http://localhost:3000/users/${localStorage.userId}`, {
@@ -31,20 +36,45 @@ class AccountContainer extends React.Component{
             this.setState({
             myOrders: user.orders,
             userName: user.username,
-            purchases
+            order,
+            purchases,
+            checkedOut: order.checkedout
             })
             // console.log(this.state.myOrders, this.state.userName, this.state.purchases)
         }
 
 
         pastOrders = () => {
-        console.log(this.myOrders)
-        return !!this.state.myOrders.length ? this.state.myOrders.filter(order => order.checkedout === true ) : false
+            console.log(this.state.myOrders)
+            return !!this.state.myOrders.length ? this.state.myOrders.filter(order => order.checkedout === true ) : false
+        }
+    
+        myOrders = () => {
+            return !this.pastOrders() ? this.pastOrders().map(order => <OrderCard key={order.id} order={order.purchases} /> ) : "You have not placed any orders."
+       
         }
 
-        myOrders = () => {
-            return !!this.pastOrders() ? this.state.myOrders.map(order => <OrderCard key={order.id} order={order} />) : "You have not placed any orders."
-        }
+        deleteUser = async () => {
+            await fetch(`http://localhost:3000/users/${localStorage.userId}`, {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": localStorage.token
+                } 
+            })
+            // localStorage.userId = ""
+            // localStorage.token = ""
+        
+            this.setState({
+              loggedInUserId: null,
+              token: null
+            })
+            window.alert("Account deleted")
+            
+        
+            this.props.history.push("/login")
+            return <Redirect to="/login" />
+        } 
 
 
     render(){
@@ -55,18 +85,23 @@ class AccountContainer extends React.Component{
          <EditUsername />
          <EditPassword />
          <br></br>
-         <h3 style={{fontFamily: "Optima"}}>Past Purchases</h3>
+         {/* <li style={{listStyle: "none", margin: "10px"}}>
+        {this.myOrders()}
+    </li> */}
+         <h3 style={{fontFamily: "Optima"}}>Completed Purchases</h3>
          <OrderCard/>
          {/* <div style={{margin: "30px"}}>{this.state.myOrders}</div>  */}
          {/* {this.state.myOrders.map(order => <div>{order.this.state.myOrders}</div>)} */}
-         {/* <p>{this.myOrders.length}</p> */}
-         <div>
+         {/* <p>{this.pastOrders()}</p> */}
+         {/* <div>
              {this.state.myOrders.map((myOrder) => (
                  <p>[{myOrder.purchases}]</p>
              ))}
-         </div>
+         </div> */}
          <h3 style={{fontFamily: "Optima"}}>Delete Account</h3>
-         <DeleteUser />
+         <button className='delete-btn' onClick={this.deleteUser}>Delete</button>
+         {/* <DeleteUser /> */}
+         <br></br><br></br><br></br>
         </div>
     )}
 }

@@ -29,7 +29,6 @@ class App extends React.Component {
         loggedInUserId: localStorage.userId,
         cartItems: localStorage.cart,
         cart: JSON.parse(cart) ? JSON.parse(cart) : [],
-        // cart : !localStorage.getItem(this.cart) ? [] : JSON.parse(localStorage.getItem(this.cart)),
         orderId: localStorage.orderId,
         allArtworks: artworks,
         displayArtworks: artworks

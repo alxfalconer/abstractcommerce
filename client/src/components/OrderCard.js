@@ -26,7 +26,7 @@ class OrderCard extends React.Component {
         // let checkedOut = order.checkedout
 
         this.setState({
-            myOrders: localStorage.orders,
+            myOrders: user.orders,
             purchases,
             order,
             checkedOut: order.checkedout
@@ -39,14 +39,25 @@ class OrderCard extends React.Component {
     }
 
     pastOrders = () => {
-        console.log(this.myOrders)
+        console.log(this.state.purchases)
         return !!this.state.myOrders.length ? this.state.myOrders.filter(order => order.checkedout === true ) : false
     }
 
     myOrders = () => {
-        return !this.pastOrders() ? this.pastOrders().map(order => order.purchases ) : "You have not placed any orders."
+        return !this.pastOrders() ? this.pastOrders().map(order => <OrderCard key={order.id} order={order.purchases} /> ) : "You have not placed any orders."
    
     }
+completedOrders = () => {
+    console.log(this.state.order.checkedout)
+    return !! this.state.order.checkedout === true ? this.state.purchases.map(purchase => <li style={{listStyle: "none"}}>{purchase.quantity} {purchase.artwork.name} ${purchase.quantity * purchase.artwork.price}</li>) : "You have not placed any orders."
+}
+
+    // myOrders = () => {
+    //     return    this.pastOrders().map((purchase) => (
+    //         <p>{this.purchases()}]</p>
+    //     ))
+   
+    // }
 
     reducer = (total, num) => total + num
 
@@ -62,7 +73,7 @@ class OrderCard extends React.Component {
     return ( !!this.total() ? <div style={{ border: "solid", borderWidth: "1px", borderColor: "#929ca7", padding: "25px", width: "600px", margin: "0 auto", marginTop: "10px"}}>
     <h5>Order # {localStorage.orderId}:</h5>
     <li style={{listStyle: "none", margin: "10px"}}>
-        {this.purchases()}
+        {this.completedOrders()}
     </li>
     <p style={{marginTop: "100px"}}>Total: ${this.total()}</p>
     </div> : null

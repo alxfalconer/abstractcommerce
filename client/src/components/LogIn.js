@@ -101,7 +101,7 @@ class LogIn extends React.Component {
   }
 
   render(){
-    return <div style={{textAlign: "Center",  fontFamily: "Courier New, Monospace", fontWeight: "100", color: "#343a40"}}>
+    return <div style={{textAlign: "Center",  fontFamily: "Optima", fontWeight: "100", color: "#343a40"}}>
         <p style={{fontFamily: "Optima"}}>A store for my original artworks.</p>
   
       <ul>
@@ -114,7 +114,7 @@ class LogIn extends React.Component {
         ? 
         <section>
           <h2 >Log In</h2>
-          <button style={{fontSize: "18px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "20px"}} onClick={ () => this.setState({ logIn: false }) }>Switch to Sign Up</button>
+          <button className="delete-btn" style={{fontSize: "15px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "20px"}} onClick={ () => this.setState({ logIn: false }) }>Switch to Sign Up</button>
           <br></br>
           <form onSubmit={ this.logInSubmitted }>
             <br></br>
@@ -135,14 +135,14 @@ class LogIn extends React.Component {
                     name="password" 
                     value={ this.state.password } />
                     <br></br><br></br>
-            <input type="submit" />
+            <input className="delete-btn" type="submit" />
             <br></br><br></br><br></br>
           </form>
         </section>
         :
         <section>
           <h2>Sign Up</h2>
-          <button style={{fontSize: "18px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "20px"}} onClick={ () => this.setState({ logIn: true }) }>Switch to Log In</button>
+          <button className="delete-btn" style={{fontSize: "15px", borderBottom: "solid", borderWidth: "1px", borderColor: "#929ca7", margin: "20px"}} onClick={ () => this.setState({ logIn: true }) }>Switch to Log In</button>
           <br></br>
           <form onSubmit={ this.signUpSubmitted }>
           <br></br>
@@ -162,7 +162,8 @@ class LogIn extends React.Component {
                     name="password" 
                     value={ this.state.password } />
                     <br></br><br></br>
-            <input type="submit" />
+            <input className="delete-btn" type="submit" />
+            <br></br><br></br><br></br>
           </form>
         </section>
       }

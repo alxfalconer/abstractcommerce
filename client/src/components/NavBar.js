@@ -37,7 +37,7 @@ export class NavBar extends Component {
         justifyContent: "space-around"}}>
         <Link to="/" style={{fontSize: "23px", fontFamily: "Optima", color: "white", textDecorationColor: "none"}}>ABSTRACT COMMERCE</Link>
         <Link to="/artworks" style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "Browse Artworks" : ""}</Link>
-        <Link to={`/account`} style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "My Account" : ""}</Link>
+        <Link to={`/account`} handleLogOut={this.handleLogOut} style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "My Account" : ""}</Link>
         <Link to="/cart" style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "Cart: " + this.props.cartNum : ""}</Link>
         {this.logButton()}
       </nav>
