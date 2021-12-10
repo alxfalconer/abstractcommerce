@@ -7,6 +7,7 @@ import {Footer} from './components/Footer';
 import { Redirect } from 'react-router-dom'
 
 
+
 class App extends React.Component {
   state = {
     token:  localStorage.token,
@@ -20,12 +21,15 @@ class App extends React.Component {
   }
 
   componentDidMount = async() => {
+    const cart = localStorage.getItem('myCart')
     let rawArtworks = await fetch('http://localhost:3000/artworks')
     let artworks = await rawArtworks.json() 
       this.setState({
         token: localStorage.token,
         loggedInUserId: localStorage.userId,
-        cartItems: localStorage.purchases,
+        cartItems: localStorage.cart,
+        cart: JSON.parse(cart) ? JSON.parse(cart) : [],
+        // cart : !localStorage.getItem(this.cart) ? [] : JSON.parse(localStorage.getItem(this.cart)),
         orderId: localStorage.orderId,
         allArtworks: artworks,
         displayArtworks: artworks
@@ -106,6 +110,7 @@ class App extends React.Component {
           total: this.state.total + purchase.artwork.price,
           cartItem: localStorage.cart
         })
+        localStorage.setItem('myCart', JSON.stringify(this.state.cart))
       })
     }
   }
