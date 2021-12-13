@@ -5,7 +5,7 @@ class LoginController < ApplicationController
       if user && user.authenticate(params[:password])
         render json: { token: token(user.id), total: user.orders.last.showTotal, purchases: user.orders.last.showPurchaseArtworks, user_id: user.id, order_id: user.orders.last.id }
       else
-        render json: { errors: [ "That didn't match any users WE know about 💁" ] }, status: :unprocessable_entity
+        render json: { errors: [ "No match." ] }, status: :unprocessable_entity
       end 
     end
   

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export class NavBar extends Component {
 
@@ -19,7 +19,6 @@ export class NavBar extends Component {
     return (
       <nav className="nav" style={{ 
         backgroundColor: "black", 
-        position: "-webkit-sticky", 
         position: "sticky",
         top: "0", 
         borderBottom: "solid", 
@@ -37,7 +36,7 @@ export class NavBar extends Component {
         justifyContent: "space-around"}}>
         <Link to="/" style={{fontSize: "23px", fontFamily: "Optima", color: "white", textDecorationColor: "none"}}>ABSTRACT COMMERCE</Link>
         <Link to="/artworks" style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "Browse Artworks" : ""}</Link>
-        <Link to={`/account`} handleLogOut={this.handleLogOut} style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "My Account" : ""}</Link>
+        <Link to={`/account`} handleLogOut={this.props.handleLogOut} style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "My Account" : ""}</Link>
         <Link to="/cart" style={{color: "white", textDecoration: "none"}}>{!!localStorage.userId ? "Cart: " + this.props.cartNum : ""}</Link>
         {this.logButton()}
       </nav>

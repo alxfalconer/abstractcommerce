@@ -5,7 +5,8 @@ import { Redirect } from 'react-router-dom'
 class CartContainer extends React.Component {
 
     state = {
-        redirect: false
+        redirect: false,
+        orders: [],
     }
 
     handleCheckout = () => {

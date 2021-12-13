@@ -1,13 +1,12 @@
 import React from 'react';
-import {withRouter, Redirect} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 
 class DeleteUser extends React.Component{
 
-    // maybe
 
     delete = async () => {
         await fetch(`http://localhost:3000/users/${localStorage.userId}`, {
-            method: 'DELETE',
+            method: 'DELETE', 
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.token

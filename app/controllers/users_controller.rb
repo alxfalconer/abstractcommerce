@@ -10,9 +10,7 @@ class UsersController < ApplicationController
         user = User.find(user_id)
         render json: user.to_json(:include => {
             :orders => {:only => [:id, :user_id]}
-          })
-        
-       
+          }) 
     end
 
     

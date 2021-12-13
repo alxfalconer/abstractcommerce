@@ -2,7 +2,7 @@ import React from 'react';
 import ArtworkCard from '../../components/ArtworkCard'
 import SideBar from "../../components/SideBar";
     const style = {
-        marginLeft: "140px",
+        marginLeft: "180px",
         marginTop:"5%",
         display: "flex",
         flexDirection: "row",

@@ -93,7 +93,6 @@ class LogIn extends React.Component {
         token: data.token,
         user_id: data.user_id,
         order_id: orderObj.id,
-        token: data.token,
         total: 0
       }
       this.props.setToken(stuff)
@@ -102,7 +101,6 @@ class LogIn extends React.Component {
 
   render(){
     return <div style={{textAlign: "Center",  fontFamily: "Optima", fontWeight: "100", color: "#343a40"}}>
-        <p style={{fontFamily: "Optima"}}>A store for my original artworks.</p>
   
       <ul>
         {
