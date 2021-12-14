@@ -4,7 +4,7 @@ import LogIn from '../components/LogIn';
 import {Footer} from '../components/Footer';
 import { Route, Switch, Redirect} from 'react-router-dom'
 
-export class MainContainer extends Component {
+class MainContainer extends Component {
 
     loginRender = () => {if (!!this.props.token) {return <Redirect to="/artworks" />} else return <Redirect to="/login"/>}
     

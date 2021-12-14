@@ -1,5 +1,5 @@
 import React from 'react';
-import LongCard from '../../components/LongCard'
+import CartCard from '../../components/CartCard'
 import { Redirect } from 'react-router-dom'
 
 class CartContainer extends React.Component {
@@ -89,7 +89,7 @@ class CartContainer extends React.Component {
                 listStyle: "none"
                 }}>
                     <h1 style={{textAlign: "Center"}}>C A R T</h1>
-                {this.props.currentCart.map(item => <LongCard removeFromCart={this.props.removeFromCart} key={item.id} cartItem={item} />)}
+                {this.props.currentCart.map(item => <CartCard removeFromCart={this.props.removeFromCart} key={item.id} cartItem={item} />)}
             </li>
             <h2>Total: ${this.props.total}</h2>
             <button className="btn" style={{fontSize: "18px"}} onClick={this.handleCheckout} >Checkout</button> 

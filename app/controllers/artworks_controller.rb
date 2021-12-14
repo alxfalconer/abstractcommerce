@@ -11,7 +11,6 @@ class ArtworksController < ApplicationController
         render json: artwork.to_json
       end
   
-      
   
       private
   

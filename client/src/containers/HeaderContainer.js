@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from '../components/NavBar'
 
-export class HeaderContainer extends Component {
+class HeaderContainer extends Component {
     render() {
         return (
             <>

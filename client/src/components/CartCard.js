@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class LongCard extends Component {
+class CartCard extends Component {
 
     handleClick = () => {
         this.props.removeFromCart(this.props.cartItem)
@@ -23,4 +23,4 @@ export class LongCard extends Component {
     }
 }
 
-export default LongCard;
+export default CartCard;

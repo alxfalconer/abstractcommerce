@@ -15,7 +15,7 @@ const style = {
     textAlign: "center"
   }
 
-export class SideBar extends Component {
+class SideBar extends Component {
 
     state = {
         value: '',

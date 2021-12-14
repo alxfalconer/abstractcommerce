@@ -29,7 +29,7 @@ class App extends React.Component {
       })
   }
 
-  setToken = ({ token, user_id, order_id, purchase_id, purchases, total }) => {
+  setToken = ({ token, user_id, order_id, purchases, total }) => {
     console.log(localStorage.purchaseId)
 
     localStorage.token = token

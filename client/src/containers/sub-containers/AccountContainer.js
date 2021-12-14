@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom'
 import OrderCard from '../../components/OrderCard'
 import EditUsername from '../../components/EditUsername'
 import EditPassword from '../../components/EditPassword'
+import DeleteUser from '../../components/DeleteUser'
 
 class AccountContainer extends React.Component{
     
@@ -27,27 +28,6 @@ class AccountContainer extends React.Component{
             })
         }
 
-        deleteUser = async () => {
-            await fetch(`http://localhost:3000/users/${localStorage.userId}`, {
-                method: 'DELETE',
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": localStorage.token
-                } 
-            })
-
-            this.setState({
-              loggedInUserId: null,
-              token: null
-            })
-            window.alert("Account deleted")
-            
-        
-            this.props.history.push("/login")
-        
-        } 
-
-
     render(){
         
     return (
@@ -59,7 +39,7 @@ class AccountContainer extends React.Component{
          <br></br>
          <OrderCard/>
          <h3 style={{fontFamily: "Optima"}}>Delete Account</h3>
-         <button className='delete-btn' onClick={this.deleteUser}>Delete</button>
+         <DeleteUser/>
          <br></br><br></br><br></br>
         </div>
     )}

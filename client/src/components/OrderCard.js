@@ -23,10 +23,6 @@ class OrderCard extends React.Component {
         console.log(this.state.purchases)
     }
 
-    // purchases = () => {
-    // return !!this.state.purchases.length ? this.state.purchases.map(purchase => <li style={{listStyle: "none"}}>{purchase.quantity} {purchase.artwork.name} ${purchase.quantity * purchase.artwork.price}</li>) : false
-    // }
-
 completedOrders = () => {
     console.log(this.state.checkedOut)
     return !! this.state.checkedOut === true ? this.state.purchases.map(purchase => <li style={{listStyle: "none"}}>{purchase.quantity} {purchase.artwork.name} ${purchase.quantity * purchase.artwork.price}</li>) : "You have not completed any purchases at this time."
