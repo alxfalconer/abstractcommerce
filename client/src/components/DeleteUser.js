@@ -5,7 +5,7 @@ class DeleteUser extends React.Component{
 
 
     delete = async () => {
-        await fetch(`http://localhost:3000/users/${localStorage.userId}`, {
+        await fetch(`users/${localStorage.userId}`, {
             method: 'DELETE', 
             headers: {
                 "Content-Type": "application/json",

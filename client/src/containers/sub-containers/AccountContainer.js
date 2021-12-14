@@ -14,7 +14,7 @@ class AccountContainer extends React.Component{
         
     }
     componentDidMount = async () => {
-        let rawUser = await fetch(`http://localhost:3000/users/${localStorage.userId}`, {
+        let rawUser = await fetch(`users/${localStorage.userId}`, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": this.props.token

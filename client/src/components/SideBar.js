@@ -24,7 +24,7 @@ class SideBar extends Component {
     }
 
     componentDidMount = async() => {
-        let rawArtworks = await fetch('http://localhost:3000/artworks')
+        let rawArtworks = await fetch('artworks')
         let artworks = await rawArtworks.json() 
           this.setState({
             allArtworks: artworks,

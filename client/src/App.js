@@ -18,7 +18,7 @@ class App extends React.Component {
 
   componentDidMount = async() => {
     const cart = localStorage.getItem('myCart')
-    let rawArtworks = await fetch('http://localhost:3000/artworks')
+    let rawArtworks = await fetch('artworks')
     let artworks = await rawArtworks.json() 
       this.setState({
         token: localStorage.token,
@@ -77,7 +77,7 @@ class App extends React.Component {
   addToCart = (artwork) => {
     localStorage.cart = this.state.cart.map(item => item.id )
     if (this.state.loggedInUserId) {
-      fetch('http://localhost:3000/purchases', {
+      fetch('purchases', {
         method: "POST",
         headers: {
           "Authorization": this.state.token,
@@ -108,7 +108,7 @@ class App extends React.Component {
   }
 
   removeFromCart = (purchase) => {
-    fetch(`http://localhost:3000/purchases/${purchase.id}`, {
+    fetch(`purchases/${purchase.id}`, {
         method: 'DELETE'
     })
     .then(() => {

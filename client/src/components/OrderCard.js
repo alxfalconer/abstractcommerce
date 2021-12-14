@@ -7,7 +7,7 @@ class OrderCard extends React.Component {
     }
 
     componentDidMount = async () => {
-        let rawOrder = await fetch (`http://localhost:3000/orders/${localStorage.orderId}`, {
+        let rawOrder = await fetch (`orders/${localStorage.orderId}`, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.token
