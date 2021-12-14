@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_12_07_014048) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "artworks", force: :cascade do |t|
     t.string "name"
     t.string "img"
@@ -48,6 +51,6 @@ ActiveRecord::Schema.define(version: 2021_12_07_014048) do
   end
 
   add_foreign_key "orders", "users"
-  add_foreign_key "purchases", "orders"
   add_foreign_key "purchases", "artworks"
+  add_foreign_key "purchases", "orders"
 end
