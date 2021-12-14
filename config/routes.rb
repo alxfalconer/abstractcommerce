@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show'
   resources :users
   resources :login, only: [:create]
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
