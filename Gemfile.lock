@@ -102,7 +102,6 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
-    pg (1.2.3)
     puma (5.5.2)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -149,6 +148,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.2)
     thor (1.1.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -168,11 +168,11 @@ DEPENDENCIES
   dotenv-rails
   jwt
   listen (~> 3.3)
-  pg (>= 0.18, < 2.0)
   puma (~> 5.0)
   rack-cors
   rails (~> 6.1.4, >= 6.1.4.1)
   spring
+  sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
