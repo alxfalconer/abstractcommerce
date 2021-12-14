@@ -3,6 +3,7 @@ import HeaderContainer from "./containers/HeaderContainer";
 import MainContainer from "./containers/MainContainer";
 import "./App.css";
 import {Footer} from './components/Footer';
+const api = 'https://abstract-commerce.herokuapp.com/'
 
 class App extends React.Component {
   state = {
@@ -18,7 +19,7 @@ class App extends React.Component {
 
   componentDidMount = async() => {
     const cart = localStorage.getItem('myCart')
-    let rawArtworks = await fetch('artworks')
+    let rawArtworks = await fetch(api + 'artworks')
     let artworks = await rawArtworks.json() 
       this.setState({
         token: localStorage.token,
@@ -77,7 +78,7 @@ class App extends React.Component {
   addToCart = (artwork) => {
     localStorage.cart = this.state.cart.map(item => item.id )
     if (this.state.loggedInUserId) {
-      fetch('purchases', {
+      fetch(api + 'purchases', {
         method: "POST",
         headers: {
           "Authorization": this.state.token,
@@ -108,7 +109,7 @@ class App extends React.Component {
   }
 
   removeFromCart = (purchase) => {
-    fetch(`purchases/${purchase.id}`, {
+    fetch(api + `purchases/${purchase.id}`, {
         method: 'DELETE'
     })
     .then(() => {

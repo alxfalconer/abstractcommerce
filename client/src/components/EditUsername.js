@@ -1,4 +1,5 @@
 import React from 'react'
+const api = 'https://abstract-commerce.herokuapp.com/'
 
 class EditUsername extends React.Component{
 
@@ -7,7 +8,7 @@ class EditUsername extends React.Component{
     }
 
     editUsername = async (newUsername) => {
-        await fetch(`users/${localStorage.userId}`, {
+        await fetch(api + `users/${localStorage.userId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

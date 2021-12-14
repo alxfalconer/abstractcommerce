@@ -1,4 +1,5 @@
 import React from 'react';
+const api = 'https://abstract-commerce.herokuapp.com/'
 
 class OrderCard extends React.Component {
     state = {
@@ -7,7 +8,7 @@ class OrderCard extends React.Component {
     }
 
     componentDidMount = async () => {
-        let rawOrder = await fetch (`orders/${localStorage.orderId}`, {
+        let rawOrder = await fetch (api + `orders/${localStorage.orderId}`, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.token

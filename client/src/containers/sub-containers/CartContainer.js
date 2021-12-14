@@ -1,6 +1,7 @@
 import React from 'react';
 import CartCard from '../../components/CartCard'
 import { Redirect } from 'react-router-dom'
+const api = 'https://abstract-commerce.herokuapp.com/'
 
 class CartContainer extends React.Component {
 
@@ -23,7 +24,7 @@ class CartContainer extends React.Component {
     checkout = () => {
         let completedOrder
         let newOrder
-        fetch(`orders/${localStorage.orderId}`, {
+        fetch(api + `orders/${localStorage.orderId}`, {
             method: "PATCH",
             headers: {
                 "Authorization": this.props.token.toString(),
@@ -37,7 +38,7 @@ class CartContainer extends React.Component {
         .then(data => {
             this.props.clearCart()
             completedOrder = data
-            fetch("orders", {
+            fetch(api + "orders", {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

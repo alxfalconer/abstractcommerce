@@ -1,11 +1,12 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom'
+const api = 'https://abstract-commerce.herokuapp.com/'
 
 class DeleteUser extends React.Component{
 
 
     delete = async () => {
-        await fetch(`users/${localStorage.userId}`, {
+        await fetch(api + `users/${localStorage.userId}`, {
             method: 'DELETE', 
             headers: {
                 "Content-Type": "application/json",

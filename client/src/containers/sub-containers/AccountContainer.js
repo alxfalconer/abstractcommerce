@@ -4,6 +4,7 @@ import OrderCard from '../../components/OrderCard'
 import EditUsername from '../../components/EditUsername'
 import EditPassword from '../../components/EditPassword'
 import DeleteUser from '../../components/DeleteUser'
+const api = 'https://abstract-commerce.herokuapp.com/'
 
 class AccountContainer extends React.Component{
     
@@ -14,7 +15,7 @@ class AccountContainer extends React.Component{
         
     }
     componentDidMount = async () => {
-        let rawUser = await fetch(`users/${localStorage.userId}`, {
+        let rawUser = await fetch(api + `users/${localStorage.userId}`, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": this.props.token

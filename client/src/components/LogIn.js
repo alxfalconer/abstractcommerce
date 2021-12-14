@@ -1,4 +1,5 @@
 import React from 'react';
+const api = 'https://abstract-commerce.herokuapp.com/'
 
 class LogIn extends React.Component {
     
@@ -17,7 +18,7 @@ class LogIn extends React.Component {
 
   logInSubmitted = (event) => {
     event.preventDefault()
-    fetch("login", {
+    fetch(api + "login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -36,7 +37,7 @@ class LogIn extends React.Component {
           // debugger
           console.log(data)
           // this.props.setToken(data)
-          fetch(`orders/${data.order_id}`)
+          fetch(api + `orders/${data.order_id}`)
           .then(r => r.json())
           .then(order => {
             let information = {
@@ -55,7 +56,7 @@ class LogIn extends React.Component {
 
   signUpSubmitted = (event) => {
     event.preventDefault() 
-    fetch("users", {
+    fetch(api + "users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -78,7 +79,7 @@ class LogIn extends React.Component {
   }
 
   createEmptyOrder = (data) => {
-    fetch("orders", {
+    fetch(api + "orders", {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"

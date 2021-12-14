@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
+const api = 'https://abstract-commerce.herokuapp.com/'
 
 const style = {
     margin: "50px",
@@ -24,7 +25,7 @@ class SideBar extends Component {
     }
 
     componentDidMount = async() => {
-        let rawArtworks = await fetch('artworks')
+        let rawArtworks = await fetch(api + 'artworks')
         let artworks = await rawArtworks.json() 
           this.setState({
             allArtworks: artworks,
