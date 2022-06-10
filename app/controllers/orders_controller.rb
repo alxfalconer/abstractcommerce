@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
     def update
       order = Order.find(params[:id])
       if order.update(order_params)
-        # new_order = Order.create(user_id: params[:id], checkedout: false)
+        # new_order = Order.create(user_id: params[:id], checkedout: false)/
         render json: order
       else
         render json: order.errors, status: :unprocessable_entity
@@ -34,3 +34,4 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:user_id, :checkedout)
     end 
 end
+
